@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 public class SendMessage implements Method {
 
+    private final String METHOD_NAME = "sendMessage";
     private String chatId;
     private String text;
 
@@ -15,7 +16,7 @@ public class SendMessage implements Method {
     @Override
     public String getResult() throws IllegalAccessException {
         StringBuilder sb = new StringBuilder();
-        sb.append("sendMessage?");
+        sb.append(METHOD_NAME + "?");
         for(Field f: getClass().getDeclaredFields()) {
             if (f.get(this) != null) {
                 sb.append(f.getName() + "=" + f.get(this) + "&");

@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 public class GetUpdates implements Method {
 
+    private final String METHOD_NAME = "getUpdates";
     private Integer offset;
     private Integer limit;
     private Integer timeout = 0;
@@ -28,7 +29,7 @@ public class GetUpdates implements Method {
     @Override
     public String getResult() throws IllegalAccessException {
         StringBuilder sb = new StringBuilder();
-        sb.append("getUpdates?");
+        sb.append(METHOD_NAME + "?");
        for(Field f: getClass().getDeclaredFields()) {
            if (f.get(this) != null) {
                sb.append(f.getName() + "=" + f.get(this) + "&");
