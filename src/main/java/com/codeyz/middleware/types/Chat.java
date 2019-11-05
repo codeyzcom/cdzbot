@@ -56,10 +56,6 @@ public class Chat {
         return gson.fromJson(json, Chat.class);
     }
 
-    public Object fromJson() {
-        return null;
-    }
-
     public Integer getId() {
         return id;
     }
