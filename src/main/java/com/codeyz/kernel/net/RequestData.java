@@ -1,4 +1,4 @@
-package com.codeyz.middleware;
+package com.codeyz.kernel.net;
 
 public class RequestData {
 

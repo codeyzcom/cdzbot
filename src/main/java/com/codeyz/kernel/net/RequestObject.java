@@ -1,15 +1,15 @@
-package com.codeyz.middleware;
+package com.codeyz.kernel.net;
 
 import com.codeyz.middleware.method.Method;
 
 import java.util.List;
 
-public class PrepareRequest {
+public class RequestObject {
 
     private DoRequest doRequest;
     private List<Method> methods;
 
-    public PrepareRequest(DoRequest doRequest, List<Method> methods) {
+    public RequestObject(DoRequest doRequest, List<Method> methods) {
         this.doRequest = doRequest;
         this.methods = methods;
     }
