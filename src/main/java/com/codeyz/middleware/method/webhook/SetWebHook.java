@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class SetWebHook implements Method {
 
-    private final String METHOD_NAME = "setWebhook";
+    private final static String METHOD_NAME = "setWebhook";
     private String url;
     // private InputFile certificate; Todo
     private Integer max_connections;

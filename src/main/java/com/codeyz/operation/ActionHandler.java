@@ -1,5 +1,6 @@
 package com.codeyz.operation;
 
+import com.codeyz.operation.std.UnknownOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,7 @@ public class ActionHandler {
     }
 
     public Action getAction(String name) {
-        return actions.get(name);
+        return actions.getOrDefault(name, new UnknownOperation());
     }
 
 }

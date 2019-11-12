@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 public class GetUpdates implements Method {
 
-    private final String METHOD_NAME = "getUpdates";
+    private final static String METHOD_NAME = "getUpdates";
     private Integer offset;
     private Integer limit;
     private Integer timeout = 0;

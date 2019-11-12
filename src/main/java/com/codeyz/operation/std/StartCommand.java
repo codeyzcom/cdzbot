@@ -1,9 +1,11 @@
 package com.codeyz.operation.std;
 
-import com.codeyz.kernel.GVars;
+import com.codeyz.kernel.database.model.User;
+import com.codeyz.kernel.database.repository.UserRepository;
 import com.codeyz.kernel.net.RequestObject;
-import com.codeyz.middleware.types.AType;
+import com.codeyz.middleware.types.Update;
 import com.codeyz.operation.Action;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -11,24 +13,43 @@ import org.springframework.stereotype.Component;
 @Order(value = 1)
 public class StartCommand implements Action {
 
-    private static final String ACT_NAME = "/start";
+    public static final String ACT_NAME = "/start";
+
+    @Autowired
+    private UserRepository userRepository;
+
+    Boolean usePrivileges = true;
 
     private RequestObject ro;
     private Integer chatId;
     private String text;
+    Update update;
 
     public String getKey() {
         return ACT_NAME;
     }
 
-    @Override
-    public void setData(AType object) {
 
+    @Override
+    public void setData(Update update) {
+        this.update = update;
+        chatId = update.getMessage().getChat().getId();
     }
 
     @Override
     public void perform() {
-        System.out.println("PERRFORM!!!");
+
+
+
+        User user = new User();
+        if(!userRepository.existsUserBytIdAndFirstName(2, "Test")) {
+            System.out.println("User doesn't exist! Will be create!");
+            user.settId(2);
+            user.setFirstName("Test");
+            userRepository.save(user);
+        } else {
+            System.out.println("User Exist!");
+        }
 
     }
 

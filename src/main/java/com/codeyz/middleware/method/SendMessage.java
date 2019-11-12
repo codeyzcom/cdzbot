@@ -4,21 +4,22 @@ import java.lang.reflect.Field;
 
 public class SendMessage implements Method {
 
-    private final String METHOD_NAME = "sendMessage";
-    private String chatId;
+    //private final static String METHOD_NAME = "sendMessage";
+
+    private Integer chat_id;
     private String text;
 
-    public SendMessage(String chatId, String text) {
-        this.chatId = chatId;
+    public SendMessage(Integer chatId, String text) {
+        this.chat_id = chatId;
         this.text = text;
     }
 
     @Override
     public String getResult() throws IllegalAccessException {
         StringBuilder sb = new StringBuilder();
-        sb.append(METHOD_NAME + "?");
+        sb.append("sendMessage" + "?");
         for(Field f: getClass().getDeclaredFields()) {
-            if (f.get(this) != null) {
+            if (f.get(this) != null || f.get(this) == "METHOD_NAME") {
                 sb.append(f.getName() + "=" + f.get(this) + "&");
             }
         }
@@ -26,12 +27,12 @@ public class SendMessage implements Method {
         return sb.toString();
     }
 
-    public String getChatId() {
-        return chatId;
+    public Integer getChatId() {
+        return chat_id;
     }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
+    public void setChatId(Integer chatId) {
+        this.chat_id = chatId;
     }
 
     public String getText() {

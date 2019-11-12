@@ -4,7 +4,7 @@ import com.codeyz.middleware.method.Method;
 
 public class DeleteWebhook implements Method {
 
-    private final String METHOD_NAME = "deleteWebhook";
+    private final static String METHOD_NAME = "deleteWebhook";
 
     @Override
     public String getResult() throws IllegalAccessException {

@@ -12,6 +12,7 @@ public class Message implements AType {
     private Chat chat;
     private User forward_from;
     private Chat forward_from_chat;
+    private String text;
     // ToDo rest of class
 
 
@@ -98,5 +99,11 @@ public class Message implements AType {
         this.forward_from_chat = forward_from_chat;
     }
 
+    public String getText() {
+        return text;
+    }
 
+    public void setText(String text) {
+        this.text = text;
+    }
 }

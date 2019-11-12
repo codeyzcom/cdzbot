@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetWebHookInfo implements Method {
 
-    private final String METHOD_NAME = "getWebhookInfo";
+    private final static String METHOD_NAME = "getWebhookInfo";
 
     private String url;
 

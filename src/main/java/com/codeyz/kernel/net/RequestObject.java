@@ -24,6 +24,7 @@ public class RequestObject {
                 e.printStackTrace();
             }
         }
+        System.out.println(sb.toString());
         return doRequest.doGet(sb.toString());
     }
 }
