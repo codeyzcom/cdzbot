@@ -1,9 +1,8 @@
 package com.codeyz.kernel;
 
 import com.codeyz.kernel.net.RequestObject;
-import com.codeyz.middleware.types.Update;
-import com.codeyz.operation.Action;
 import com.codeyz.operation.ActionHandler;
+import com.codeyz.script.ScriptContext;
 
 public class UpdateHandler implements Runnable {
 
@@ -18,15 +17,14 @@ public class UpdateHandler implements Runnable {
 
     @Override
     public void run() {
-        Update update = Update.fromJson(inputData);
-        GVars.setUpdateId(update.getUpdateId());
 
-        Action action = actions.getAction(update.getMessage().getText());
+        ScriptContext sc = new ScriptContext();
+        ScriptDispatcher sd = new ScriptDispatcher(inputData);
 
-        action.setData(update);
-        action.perform();
-
-        RequestObject requestObject = action.getResult();
-        requestObject.buildGet();
+        sc.setBaseScript(sd.carry());
+        if (sc.invoke()) {
+            // ToDo implement do response to chat
+            System.out.println("Simulate response to chat");
+        }
     }
 }
