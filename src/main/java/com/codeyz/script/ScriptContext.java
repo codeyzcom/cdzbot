@@ -16,7 +16,12 @@ public class ScriptContext {
         this.baseScript = baseScript;
     }
 
-    public boolean invoke() {
-        return baseScript.execute();
+    public void invoke() {
+
+        if (baseScript.execute()) {
+            if (baseScript.next() != null) {
+                baseScript.next().execute();
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.codeyz.kernel;
 
-import com.codeyz.kernel.net.RequestObject;
 import com.codeyz.operation.ActionHandler;
 import com.codeyz.script.ScriptContext;
 
@@ -22,9 +21,6 @@ public class UpdateHandler implements Runnable {
         ScriptDispatcher sd = new ScriptDispatcher(inputData);
 
         sc.setBaseScript(sd.carry());
-        if (sc.invoke()) {
-            // ToDo implement do response to chat
-            System.out.println("Simulate response to chat");
-        }
+        sc.invoke();
     }
 }

@@ -4,9 +4,9 @@ import com.google.gson.Gson;
 
 import java.util.Objects;
 
-public class Chat {
+public class Chat implements AType {
 
-    private Integer id;
+    private Long id;
     private String type;
     private String username;
     private String first_name;
@@ -18,7 +18,7 @@ public class Chat {
     private String sticker_set_name;
     private Boolean can_set_sticker_set;
 
-    public Chat(Integer id, String type) {
+    public Chat(Long id, String type) {
         this.id = id;
         this.type = type;
     }
@@ -56,11 +56,11 @@ public class Chat {
         return gson.fromJson(json, Chat.class);
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -16,7 +16,7 @@ public class RequestObject {
 
     public String buildGet() {
         StringBuilder sb = new StringBuilder();
-        sb.append(RequestData.getUrl());
+        sb.append(URLHandler.formStdUrl());
         for (Method m: methods) {
             try {
                 sb.append(m.getResult());

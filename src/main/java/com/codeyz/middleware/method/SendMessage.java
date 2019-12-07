@@ -6,10 +6,10 @@ public class SendMessage implements Method {
 
     //private final static String METHOD_NAME = "sendMessage";
 
-    private Integer chat_id;
+    private Long chat_id;
     private String text;
 
-    public SendMessage(Integer chatId, String text) {
+    public SendMessage(Long chatId, String text) {
         this.chat_id = chatId;
         this.text = text;
     }
@@ -27,11 +27,11 @@ public class SendMessage implements Method {
         return sb.toString();
     }
 
-    public Integer getChatId() {
+    public Long getChatId() {
         return chat_id;
     }
 
-    public void setChatId(Integer chatId) {
+    public void setChatId(Long chatId) {
         this.chat_id = chatId;
     }
 

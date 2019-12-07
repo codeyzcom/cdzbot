@@ -10,6 +10,7 @@ public class Update implements AType {
     @SerializedName("update_id")
     private Integer updateId;
 
+    @SerializedName("message")
     private Message message;
 
     @SerializedName("edited_message")

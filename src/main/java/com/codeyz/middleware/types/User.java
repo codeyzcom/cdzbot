@@ -4,14 +4,14 @@ import com.google.gson.Gson;
 
 public class User {
 
-    private Integer id;
+    private Long id;
     private Boolean is_bot;
     private String first_name;
     private String last_name;
     private String username;
     private String language_code;
 
-    public User(Integer id, Boolean is_bot, String first_name) {
+    public User(Long id, Boolean is_bot, String first_name) {
         this.id = id;
         this.is_bot = is_bot;
         this.first_name = first_name;
@@ -22,11 +22,11 @@ public class User {
         return null;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

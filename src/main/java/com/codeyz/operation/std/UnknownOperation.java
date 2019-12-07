@@ -16,7 +16,7 @@ public class UnknownOperation implements Action {
     private final static String ACT_NAME = "UnknownOperation";
 
     private RequestObject req;
-    private Integer chatId;
+    private Long chatId;
 
     @Override
     public String getKey() {

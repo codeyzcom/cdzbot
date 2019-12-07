@@ -1,10 +1,11 @@
 package com.codeyz.kernel.net;
 
+import com.codeyz.kernel.GV;
+
 public class RequestData {
 
     private static RequestData instance = new RequestData();
     private static String url;
-    private static String secretKey;
 
     private RequestData() {};
 
@@ -16,15 +17,7 @@ public class RequestData {
         RequestData.url = url;
     }
 
-    public static String getSecretKey() {
-        return secretKey;
-    }
-
-    public static void setSecretKey(String secretKey) {
-        RequestData.secretKey = secretKey;
-    }
-
     public static String getUrl() {
-        return url + "/bot" + secretKey + "/";
+        return url + "/bot" + GV.getSecretKey() + "/";
     }
 }

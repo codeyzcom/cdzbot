@@ -1,23 +1,36 @@
 package com.codeyz.middleware.types;
 
+import com.codeyz.middleware.types.file.Audio;
+import com.codeyz.middleware.types.file.Document;
+import com.codeyz.middleware.types.file.Voice;
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 public class Message implements AType {
 
-    private Integer message_id;
+    @SerializedName("message_id")
+    private Integer messageId;
     private User from;
     private Integer date;
     private Chat chat;
-    private User forward_from;
-    private Chat forward_from_chat;
+
+    @SerializedName("forward_from")
+    private User forwardFrom;
+
+    @SerializedName("forward_from_chat")
+    private Chat forwardFromChat;
+
     private String text;
+    private Audio audio;
+    private Document document;
+    private Voice voice;
     // ToDo rest of class
 
 
     public Message(Integer message_id, User from, Integer date, Chat chat) {
-        this.message_id = message_id;
+        this.messageId = message_id;
         this.from = from;
         this.date = date;
         this.chat = chat;
@@ -28,21 +41,27 @@ public class Message implements AType {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return message_id.equals(message.message_id);
+        return messageId.equals(message.messageId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(message_id);
+        return Objects.hash(messageId);
     }
 
     @Override
     public String toString() {
         return "Message{" +
-                "message_id=" + message_id +
+                "message_id=" + messageId +
                 ", from=" + from +
                 ", date=" + date +
                 ", chat=" + chat +
+                ", forward_from=" + forwardFrom +
+                ", forward_from_chat=" + forwardFromChat +
+                ", text='" + text + '\'' +
+                ", audio=" + audio +
+                ", document=" + document +
+                ", voice=" + voice +
                 '}';
     }
 
@@ -51,12 +70,12 @@ public class Message implements AType {
         return g.fromJson(json, Message.class);
     }
 
-    public Integer getMessage_id() {
-        return message_id;
+    public Integer getMessageId() {
+        return messageId;
     }
 
-    public void setMessage_id(Integer message_id) {
-        this.message_id = message_id;
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
     }
 
     public User getFrom() {
@@ -83,20 +102,20 @@ public class Message implements AType {
         this.chat = chat;
     }
 
-    public User getForward_from() {
-        return forward_from;
+    public User getForwardFrom() {
+        return forwardFrom;
     }
 
-    public void setForward_from(User forward_from) {
-        this.forward_from = forward_from;
+    public void setForwardFrom(User forwardFrom) {
+        this.forwardFrom = forwardFrom;
     }
 
-    public Chat getForward_from_chat() {
-        return forward_from_chat;
+    public Chat getForwardFromChat() {
+        return forwardFromChat;
     }
 
-    public void setForward_from_chat(Chat forward_from_chat) {
-        this.forward_from_chat = forward_from_chat;
+    public void setForwardFromChat(Chat forwardFromChat) {
+        this.forwardFromChat = forwardFromChat;
     }
 
     public String getText() {
@@ -105,5 +124,29 @@ public class Message implements AType {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Audio getAudio() {
+        return audio;
+    }
+
+    public void setAudio(Audio audio) {
+        this.audio = audio;
+    }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+    public Voice getVoice() {
+        return voice;
+    }
+
+    public void setVoice(Voice voice) {
+        this.voice = voice;
     }
 }

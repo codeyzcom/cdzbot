@@ -21,7 +21,7 @@ public class StartCommand implements Action {
     Boolean usePrivileges = true;
 
     private RequestObject ro;
-    private Integer chatId;
+    private Long chatId;
     private String text;
     Update update;
 
