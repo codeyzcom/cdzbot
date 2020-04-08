@@ -43,6 +43,14 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.codeyz</groupId>
+            <artifactId>CodeyzCommons</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/CodeyzCommons-1.0.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>5.2.1.RELEASE</version>
